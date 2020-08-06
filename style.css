@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
+body {
+    box-sizing: border-box;
+    background-color: #374046;
+    background-color: #002642;
+    color: #374046;
+    /* color: #7d7c83; */
+    /* color: #354f52; */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+[v-cloak] {
+	display: none;
+}

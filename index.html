@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Personal Dashboard</title>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="css/mdb.min.css" rel="stylesheet">
+	<!-- Your custom styles (optional) -->
+	<link href="css/style.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<link rel="stylesheet" href="clock/assets/css/style.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body class="p-4">
+
+	<!-- Start your project here-->
+	<div class="container mt-5 d-none">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="purple-gradient mx-3">
+					<h3 class="text-white py-4 text-center"><Strong>Material Cards</Strong></h3>
+				</div>
+			</div>
+		</div>
+		<div class="my-4"></div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card mx-3 hoverable">
+					<div class="d-flex blue darken-1 justify-content-center" style="height: 200px;">
+						<div class="align-self-center">
+							<h4 class="white-text"><strong>Card One</strong></h4>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="card-text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis quas
+						</div>
+					</div>
+					<div class="card-footer white">
+						<strong class="text-info">Action</strong>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mx-3 hoverable">
+					<div class="d-flex amber darken-1 justify-content-center" style="height: 200px;">
+						<div class="align-self-center">
+							<h4 class="white-text"><strong>Card Two</strong></h4>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="card-text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis quas
+						</div>
+					</div>
+					<div class="card-footer white">
+						<strong class="text-info">Action</strong>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mx-3 hoverable">
+					<div class="d-flex purple darken-1 justify-content-center" style="height: 200px;">
+						<div class="align-self-center">
+							<h4 class="white-text"><strong>Card Three</strong></h4>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="card-text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis quas
+						</div>
+					</div>
+					<div class="card-footer white">
+						<strong class="text-info">Action</strong>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Start your project here-->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<!-- News Card -->
+				<div id="news-card" class="card tile mb-3" v-cloak>
+					<div class="card-header bg-danger text-white">
+						<h6 class="">{{ greetings }}</h6>
+					</div>
+					<div class="card-body">
+						<div class="list-group">
+							<div v-if="result.articles" v-for="news in result.articles" class="list-group-item list-group-item-action flex-column align-items-start border-left-0 border-right-0 px-0">
+								<div class="media">
+									<img class="d-flex align-self-center mr-3" v-bind:src="news.urlToImage" v-bind:alt="news.source.name" style="width: 200px; height: auto;">
+									<div class="media-body">
+										<small class="text-muted">- {{ formatDate(news.publishedAt) }}</small>
+										<h5 class="mb-2 h5">{{ news.title }}</h5>
+										<p class="card-text mb-2">
+											{{ news.description }}
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End of  News Card -->
+				<div class="row">
+					<div class="col-md-4">
+						<!-- Unused -->
+						<div class="card">
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">Cras justo odio</li>
+								<li class="list-group-item">Dapibus ac facilisis in</li>
+								<li class="list-group-item">Vestibulum at eros</li>
+							</ul>
+						</div>
+						<!-- End of unused -->
+					</div>
+					<div class="col-md-4">
+						<!-- Unused -->
+						<div class="card">
+							<div class="card-body">
+								<h5 class="font-weight-bold mb-3">Panel title</h5>
+								<p class="mb-0">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">Cras justo odio</li>
+								<li class="list-group-item">Dapibus ac facilisis in</li>
+							</ul>
+						</div>
+						<!-- End of Unused -->
+					</div>
+					<div class="col-md-4">
+						<!-- Unused -->
+						<div class="card">
+							<div class="card-header">
+								Featured
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">Special title treatment</h5>
+								<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+								<a href="#!" class="btn btn-primary btn-sm">Button</a>
+							</div>
+						</div>
+						<!-- End of Unused -->
+					</div>
+				</div>
+			</div>
+			<!-- End of left column -->
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-6">
+						<!-- Todo list -->
+						<div class="card mb-3">
+							<div class="card-header white">
+								<div class="d-flex">
+									<h6>All Tasks</h6>
+									<div class="ml-auto text-muted"><i class="fas fa-ellipsis-h"></i></div>
+								</div>
+							</div>
+							<div class="card-body">
+								<p class="text-muted small border-bottom text-uppercase pb-2">Completed</p>
+								<div class="form-check mb-3">
+									<input type="checkbox" class="form-check-input filled-in" id="filledInCheckbox4">
+									<label class="form-check-label" for="filledInCheckbox4">Add realtion between order and product</label>
+								</div>
+								<div class="form-check mb-3">
+									<input type="checkbox" class="form-check-input filled-in" id="filledInCheckbox4">
+									<label class="form-check-label" for="filledInCheckbox4">User created message not displaying</label>
+								</div>
+								<div class="form-check mb-3">
+									<input type="checkbox" class="form-check-input filled-in" id="filledInCheckbox4">
+									<label class="form-check-label" for="filledInCheckbox4">Company calendar</label>
+								</div>
+								<p class="text-muted small border-bottom text-uppercase my-2 pb-2">Pending</p>
+								<div class="form-check mb-3">
+									<input type="checkbox" class="form-check-input filled-in" id="filledInCheckbox4">
+									<label class="form-check-label" for="filledInCheckbox4">Covid live</label>
+								</div>
+							</div>
+						</div>
+						<!-- End of Todo list -->
+					</div>
+					<div class="col-md-6">
+						<div class="d-flex flex-column">
+							<div class="mb-3">
+								<!-- Clock -->
+								<div id="clock" class="light dark">
+									<div class="display">
+										<div class="weekdays"></div>
+										<div class="ampm"></div>
+										<!-- <div class="alarm"></div> -->
+										<div class="digits"></div>
+									</div>
+								</div>
+								<!-- End of Clock -->
+							</div>
+							<!-- Weather Card -->
+							<div id="weatherTile" class="card weather-card mb-3 bg-danger text-white" v-cloak>
+								<div class="card-body pb-3">
+									<h4 class="card-title font-weight-bold d-inline-block">
+										{{ city }}
+									</h4>
+									<small class="float-right">{{ weather.weather[0].main }}</small>
+									<div class="d-flex justify-content-between">
+										<p class="display-3 degree">{{ (weather.main.temp).toFixed(0) }} <small><sup>0</sup>C</small></p>
+										<!-- <i class="fa fa-sun fa-5x pt-3 amber-text"></i> -->
+										<img v-if="icon" v-bind:src="icon" alt="">
+									</div>
+								</div>
+							</div>
+							<!-- End of Weather Card -->
+						</div>
+						<!-- End of d-flex -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<!-- Github Tile -->
+						<div id="githubTile" class="card mb-3">
+							<div class="card-body">
+								<img class="img-fluid" src="https://ghchart.rshah.org/jamesbhatta" alt="@jamesbhatta">
+							</div>
+						</div>
+						<!-- End of Github Tile -->
+					</div>
+					<div class="col-md-12">
+						<!-- Quotes Tile -->
+						<div id="quotesTile" class="card" v-cloak>
+							<div class="card-body">
+								<blockquote class="blockquote mb-0">
+									<p>{{ quote }}</p>
+									<footer class="blockquote-footer"><cite title="Source Title">{{ author }}</cite></footer>
+								</blockquote>
+							</div>
+						</div>
+						<!-- End of Quotes Tile -->
+					</div>
+				</div>
+			</div>
+			<!-- End of right Column -->
+		</div>
+	</div>
+</div>
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
+<!-- MDBootstrap Masonry  -->
+<script type="text/javascript" src="js/addons/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="js/addons/imagesloaded.pkgd.min.js"></script>
+<script src="axios/axios.min.js"></script>
+<script src="moment/moment.min.js"></script>
+<script src="clock/assets/js/script.js"></script>
+<script>
+	// $(function () {
+		var newsTile = new Vue({
+			el: '#news-card',
+			data: {
+				greetings: 'Good moring!',
+				apiKey: "0e6927735eea48bca7149a939eaf6692",
+				result: [],
+				// loading: true,
+			},
+			mounted() {
+				this.loadNews();
+				setInterval(this.loadNews, 1000);
+			},
+			methods: {
+				loadNews() {
+					axios
+					.get(
+					"http://newsapi.org/v2/top-headlines?country=us",
+					{
+						params: {
+							country: "us",
+							language: "en",
+							apiKey: this.apiKey,
+							pageSize: 2
+						}
+					}
+					)
+					.then(res => {
+						this.result = res.data;
+						// this.loading = false;
+					})
+					.catch(function(error) {
+						console.log(error);
+					})
+				},
+				formatDate(date) {
+					return moment(date).fromNow();
+				}
+			}
+		});
+
+		var quotesTile = new Vue({
+			el: '#quotesTile',
+			data: {
+				quote: null,
+				author: null,
+			},
+			mounted() {
+				this.getQuote();
+			},
+			methods: {
+				getQuote() {
+					axios.
+					get('https://quotes.rest/qod?category=inspire',
+					{
+						headers: {
+							'content-type':  'application/json'
+						}
+					})
+					.then(res => {
+						var quote = res.data.contents.quotes[0];
+						this.quote = quote.quote;
+						this.author = quote.author;
+					})
+				}
+			}
+		});
+
+		var weatherTile = new Vue({
+			el: '#weatherTile',
+			data: {
+				appId: 'a124989ebcddc89e1b67ee183a408025',
+				city: 'Dhangadhi',
+				dayTime: null,
+				weather : [],
+				icon: null
+			},
+			mounted() {
+				this.fetchWeather();
+				setInterval(() => {this.fetchWeather}, 1000);
+
+				this.refreshDayTime();
+				setInterval(this.refreshDayTime, 1000);
+			},
+			methods: {
+				refreshDayTime() {
+					this.dayTime = moment().format('ddd h:mm:ss A');
+				},
+				fetchWeather() {
+					axios.
+					get('http://api.openweathermap.org/data/2.5/weather',
+					{
+						headers: {
+							'content-type':  'application/json'
+						},
+						params: {
+							q: 'dhangadhi',
+							appid: this.appId,
+							units: 'metric'
+						}
+					})
+					.then(res => {
+						var data = res.data;
+						this.weather = data;
+						this.icon = 'http://openweathermap.org/img/wn/' + this.weather.weather[0].icon + '@2x.png';
+						console.log('weather data: ' + data.main.temp);
+					})
+				}
+			}
+		});
+
+	</script>
+
+</body>
+
+</html>

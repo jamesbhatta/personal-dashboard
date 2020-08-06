@@ -1,0 +1,7 @@
+News
+Todo list
+calander
+Weather card
+
+
+https://nepalcorona.info/api/v1/data/nepal
